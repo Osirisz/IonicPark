@@ -5,26 +5,33 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { HttpModule } from '@angular/http' ;
+import { ParkListPage } from '../pages/park-list/park-list';
+import { ParkDetailPage } from './../pages/park-detail/park-detail';
+import { ParkDataProvider } from '../providers/park-data/park-data';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    ParkListPage,
+    ParkDetailPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    ParkListPage,
+    ParkDetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ParkDataProvider
   ]
 })
 export class AppModule {}
